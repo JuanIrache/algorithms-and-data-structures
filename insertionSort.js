@@ -23,25 +23,12 @@ function insertionSortColt(arr) {
   return arr;
 }
 
+//testing
 const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
+const checkSortedArray = require('./checkSortedArray');
 
-const len = 11111;
+let arr = createRandomArr(1111);
 
-let arr = createRandomArr(len, len);
+arr = insertionSort(arr);
 
-// let res = insertionSort(arr);
-
-// for (let i = 1; i < res.length; i++) {
-//   if (res[i] < res[i - 1]) {
-//     console.log('mistake!', res[i], res[i - 1]);
-//   }
-// }
-
-timer(len, 'colt', i => {
-  insertionSortColt(arr);
-});
-
-timer(len, 'mine', i => {
-  insertionSort(arr);
-});
+console.log(checkSortedArray(arr));

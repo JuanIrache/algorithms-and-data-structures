@@ -13,12 +13,3 @@ function factorialRec(num) {
 
 console.log(factorialIter(150));
 console.log(factorialRec(150));
-
-// const timer = require('./timer');
-
-// timer(10000000, 'iter', () => {
-//   factorialIter(200);
-// });
-// timer(10000000, 'rec', () => {
-//   factorialRec(200);
-// });

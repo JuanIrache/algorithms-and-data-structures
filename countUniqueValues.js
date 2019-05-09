@@ -1,4 +1,4 @@
-function countUniqueValuesObj(arr) {
+function countUniqueValuesFreq(arr) {
   let uniques = {};
   for (const elt of arr) uniques[elt] = true;
   return Object.keys(uniques).length;
@@ -20,23 +20,7 @@ function countUniqueValuesSet(arr) {
   return new Set(arr).size;
 }
 
-const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
-
-let arr = createRandomArr(10000, 10000);
-arr = arr.sort((a, b) => a - b);
-
-timer(10000, 'obj', () => {
-  countUniqueValuesObj(arr);
-});
-timer(10000, 'plain', () => {
-  countUniqueValues(arr);
-});
-timer(10000, 'C', () => {
-  countUniqueValuesSet(arr);
-});
-
-// console.log(countUniqueValuesObj([1, 1, 1, 1, 1, 1, 2]));
-// console.log(countUniqueValuesObj([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]));
-// console.log(countUniqueValuesObj([]));
-// console.log(countUniqueValuesObj([-2, -1, -1, 0, 1]));
+console.log(countUniqueValuesObj([1, 1, 1, 1, 1, 1, 2]));
+console.log(countUniqueValuesObj([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]));
+console.log(countUniqueValuesObj([]));
+console.log(countUniqueValuesObj([-2, -1, -1, 0, 1]));

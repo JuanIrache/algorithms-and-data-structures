@@ -12,7 +12,7 @@ function averagePair(arr, avg) {
   return false;
 }
 
-//division
+//division (slightly slower)
 
 function averagePairDiv(arr, avg) {
   if (arr.length < 2) return false;
@@ -42,6 +42,7 @@ function averagePairColt(arr, num) {
   return false;
 }
 
+//benchmarking
 const createRandomArr = require('./createRandomArr');
 const timer = require('./timer');
 

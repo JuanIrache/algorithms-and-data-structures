@@ -13,17 +13,9 @@ function bubbleSort(arr) {
 }
 
 const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
 
-const len = 9989;
+const len = 9999;
 
 let arr = createRandomArr(len, len);
 
 let res = bubbleSort(arr);
-
-for (let i = 1; i < res.length; i++) {
-  if (res[i] < res[i - 1]) {
-    console.log('mistake!', res[i], res[i - 1]);
-    console.log(res);
-  }
-}

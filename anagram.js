@@ -45,16 +45,3 @@ console.log(validAnagram('awesome', 'awesom')); // false
 console.log(validAnagram('amanaplanacanalpanama', 'acanalmanplanpamana')); // false
 console.log(validAnagram('qwerty', 'qeywrt')); // true
 console.log(validAnagram('texttwisttime', 'timetwisttext')); // true
-
-const createRandomString = require('./createRandomString');
-const timer = require('./timer');
-
-const randString = createRandomString(4000);
-
-timer(1000, () => {
-  validAnagram2(randString, randString);
-});
-
-timer(1000, () => {
-  validAnagram(randString, randString);
-});

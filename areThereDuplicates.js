@@ -39,33 +39,6 @@ function areThereDuplicatesPoint(...args) {
   return false;
 }
 
-const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
-
-const len = 10000;
-const arr = createRandomArr(len, len);
-
-timer(len, 'freqs', i => {
-  areThereDuplicatesFreq(...arr);
-});
-
-timer(len, 'oneline', i => {
-  areThereDuplicatesOneline(...arr);
-});
-
-timer(len, 'colts', i => {
-  areThereDuplicates(...arr);
-});
-
-timer(len, 'pointer', i => {
-  areThereDuplicatesPoint(...arr);
-});
-
-// console.log(areThereDuplicatesPoint(...arr));
-// console.log(areThereDuplicates(...arr));
-// console.log(areThereDuplicatesOneline(...arr));
-// console.log(areThereDuplicatesFreq(...arr));
-
-// console.log(areThereDuplicatesPoint(1, 2, 3)); //false
-// console.log(areThereDuplicatesPoint(1, 2, 2)); //true
-// console.log(areThereDuplicatesPoint('a', 'b', 'c', 'a')); //true
+console.log(areThereDuplicatesPoint(1, 2, 3)); //false
+console.log(areThereDuplicatesPoint(1, 2, 2)); //true
+console.log(areThereDuplicatesPoint('a', 'b', 'c', 'a')); //true

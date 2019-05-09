@@ -33,21 +33,3 @@ function binarySearchColt(arr, elem) {
 // console.log(binarySearch([5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98, 99], 10)); // 2
 // console.log(binarySearch([5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98, 99], 95)); // 16
 // console.log(binarySearch([5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98, 99], 100)); // -1
-
-const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
-
-const lens = 10000000;
-
-let arr = createRandomArr(lens, lens);
-arr = arr.sort((a, b) => a - b);
-
-const toSearch = createRandomArr(lens, lens);
-
-timer(lens, 'mine', i => {
-  binarySearch(arr, toSearch[i]);
-});
-
-timer(lens, 'colt', i => {
-  binarySearchColt(arr, toSearch[i]);
-});

@@ -38,29 +38,7 @@ function isSubsequenceColt(str1, str2) {
   return false;
 }
 
-const createRandomArr = require('./createRandomArr');
-const timer = require('./timer');
-
-const len = 100000;
-const arr1 = createRandomArr(len / 1000, 38);
-const arr2 = createRandomArr(len, 38);
-
-let str1 = arr1.reduce((acc, curr) => acc + String.fromCharCode(41 + curr), '');
-let str2 = arr2.reduce((acc, curr) => acc + String.fromCharCode(41 + curr), '');
-
-timer(len, 'colt', i => {
-  isSubsequenceColt(str1, str2);
-});
-
-timer(len, 'mine', i => {
-  isSubsequence(str1, str2);
-});
-
-timer(len, 'rec', i => {
-  isSubsequenceRec(str1, str2);
-});
-
-// console.log(isSubsequence('hello', 'hello world')); //true
-// console.log(isSubsequence('sing', 'sting')); //true
-// console.log(isSubsequence('abc', 'abracadabra')); //true
-// console.log(isSubsequence('abc', 'acb')); //false
+console.log(isSubsequence('hello', 'hello world')); //true
+console.log(isSubsequence('sing', 'sting')); //true
+console.log(isSubsequence('abc', 'abracadabra')); //true
+console.log(isSubsequence('abc', 'acb')); //false

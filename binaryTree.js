@@ -37,6 +37,7 @@ class BinarySearchTree {
       }
     }
   }
+  //recursive
   insertR(val, where) {
     if (!this.root) {
       this.root = new Node(val);
@@ -122,25 +123,6 @@ class BinarySearchTree {
   }
 }
 
-// let tree = new BinarySearchTree();
-// tree.insertR(10);
-// tree.insertR(15);
-// tree.insertR(7);
-// tree.insertR(20);
-// tree.insertR(1);
-// tree.insertR(13);
-// tree.insertR(50);
-// tree.insertR(11);
-// tree.insertR(16);
-// console.log(tree);
-// console.log(tree.find(4));
-// console.log(tree.find(15));
-// console.log('-');
-// console.log(tree.root);
-
-// console.log(tree.bfs());
-// console.log(tree.dfs());
-
 var tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(6);
@@ -148,6 +130,9 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
+console.log(tree.find(8));
+console.log(tree.find(15));
+console.log(tree.bfs());
 console.log(tree.dfs());
 console.log(tree.dfsPost());
 console.log(tree.dfsInOrder());

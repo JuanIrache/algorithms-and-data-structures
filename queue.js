@@ -5,6 +5,7 @@ class Node {
   }
 }
 
+//Exported for use in other algos
 module.exports = class Queue {
   constructor() {
     this.first = null;
@@ -37,6 +38,8 @@ module.exports = class Queue {
     return vals;
   }
 };
+
+//Tests will not work inside this exported file
 
 // let queue = new Queue();
 // queue.enqueue(1);

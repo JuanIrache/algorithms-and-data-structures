@@ -159,15 +159,3 @@ console.log(list.toString());
 console.log(list.remove(3));
 list.reverse();
 console.log(list.toString());
-// var doublyLinkedList = new DoublyLinkedList();
-// doublyLinkedList
-//   .push(5)
-//   .push(10)
-//   .push(15)
-//   .push(20);
-// console.log(doublyLinkedList.set(0, 10)); // true
-// console.log(doublyLinkedList.length); // 4
-// console.log(doublyLinkedList.head.val); // 10
-// console.log(doublyLinkedList.set(10, 10)); // false
-// console.log(doublyLinkedList.set(2, 100)); // true
-// console.log(doublyLinkedList.head.next.next.val); // 100

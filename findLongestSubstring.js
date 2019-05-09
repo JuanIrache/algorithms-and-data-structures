@@ -53,16 +53,16 @@ function findLongestSubstringColt(str) {
   return longest;
 }
 
+//Benchmarking
 const createRandomString = require('./createRandomString');
 const timer = require('./timer');
-
 const randString = createRandomString(4000);
 
 timer(1000, 'mine', () => {
   findLongestSubstring(randString);
 });
 timer(1000, 'mine slow', () => {
-  findLongestSubstring(randString);
+  findLongestSubstringBad(randString);
 });
 
 timer(1000, 'colt', () => {

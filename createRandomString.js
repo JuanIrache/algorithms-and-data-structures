@@ -1,3 +1,5 @@
+// Utility for testing the algos
+// Creates a random string of the specified length
 module.exports = function(len) {
   let result = '';
   for (let i = 0; i < len; i++) {

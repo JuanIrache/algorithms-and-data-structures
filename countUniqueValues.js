@@ -16,7 +16,7 @@ function countUniqueValues(arr) {
   return i + 1;
 }
 
-function countUniqueValuesC(arr) {
+function countUniqueValuesSet(arr) {
   return new Set(arr).size;
 }
 
@@ -29,14 +29,11 @@ arr = arr.sort((a, b) => a - b);
 timer(10000, 'obj', () => {
   countUniqueValuesObj(arr);
 });
-// timer(10000, 'obj2', () => {
-//   countUniqueValuesObj2(arr);
-// });
 timer(10000, 'plain', () => {
   countUniqueValues(arr);
 });
 timer(10000, 'C', () => {
-  countUniqueValuesC(arr);
+  countUniqueValuesSet(arr);
 });
 
 // console.log(countUniqueValuesObj([1, 1, 1, 1, 1, 1, 2]));

@@ -1,5 +1,5 @@
-const Stack = require('./stack');
-const Queue = require('./queue');
+const Stack = require('./21_stack');
+const Queue = require('./21_queue');
 
 class Graph {
   constructor() {

@@ -1,4 +1,4 @@
-const PriorityQueue = require('./priorityQueue');
+const PriorityQueue = require('./24_priorityQueue');
 
 class WeightedGraph {
   constructor() {

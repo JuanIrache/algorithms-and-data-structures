@@ -1,3 +1,6 @@
+const Stack = require('./stack');
+const Queue = require('./queue');
+
 class Graph {
   constructor() {
     this.adjacencyList = {};
@@ -11,13 +14,56 @@ class Graph {
     this.adjacencyList[v1].push(v2);
     this.adjacencyList[v2].push(v1);
   }
-  //   removeVertex(v) {
-  //     for (let i = this.adjacencyList[v].length - 1; i >= 0; i--) this.removeEdge(v, this.adjacencyList[v][i]);
-  //     delete this.adjacencyList[v];
-  //   }
+  removeVertex(v) {
+    while (this.adjacencyList[v].length) this.removeEdge(v, this.adjacencyList[v].pop());
+    delete this.adjacencyList[v];
+  }
   removeEdge(v1, v2) {
     if (this.adjacencyList[v1] && this.adjacencyList[v1].includes(v2)) this.adjacencyList[v1].splice(this.adjacencyList[v1].indexOf(v2), 1);
     if (this.adjacencyList[v2] && this.adjacencyList[v2].includes(v1)) this.adjacencyList[v2].splice(this.adjacencyList[v2].indexOf(v1), 1);
+  }
+  dfsRecursive(v1) {
+    let results = [];
+    let visited = {};
+    const recursion = v => {
+      visited[v] = true;
+      results.push(v);
+      this.adjacencyList[v].forEach(e => {
+        if (!visited[e]) recursion(e);
+      });
+    };
+    recursion(v1);
+    return results;
+  }
+  dfsIterative(v1) {
+    let s = new Stack();
+    let results = [];
+    let visited = {};
+    s.push(v1);
+    while (s.size) {
+      const v = s.pop();
+      if (!visited[v]) {
+        results.push(v);
+        visited[v] = true;
+        this.adjacencyList[v].forEach(e => s.push(e));
+      }
+    }
+    return results;
+  }
+  bfs(v1) {
+    let q = new Queue();
+    let results = [];
+    let visited = {};
+    q.enqueue(v1);
+    while (q.size) {
+      const v = q.dequeue();
+      if (!visited[v]) {
+        results.push(v);
+        visited[v] = true;
+        this.adjacencyList[v].forEach(e => q.enqueue(e));
+      }
+    }
+    return results;
   }
 }
 
@@ -35,4 +81,14 @@ graph.addEdge('London', 'Paris');
 graph.addEdge('New York', 'Paris');
 graph.addEdge('Buenos Aires', 'New York');
 graph.removeVertex('Paris');
-console.log(graph);
+graph.addEdge('Beijing', 'London');
+graph.addEdge('Beijing', 'Cape Town');
+graph.addEdge('Cape Town', 'El Cairo');
+graph.addEdge('Buenos Aires', 'Sydney');
+graph.addEdge('Buenos Aires', 'London');
+console.log(graph.adjacencyList);
+console.log('*************');
+
+console.log(graph.dfsRecursive('Barcelona'));
+console.log(graph.dfsIterative('Barcelona'));
+console.log(graph.bfs('Barcelona'));

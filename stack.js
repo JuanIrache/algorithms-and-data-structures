@@ -5,7 +5,8 @@ class Node {
   }
 }
 
-class Stack {
+//export for use in other exercises
+module.exports = class Stack {
   constructor() {
     this.first = null;
     this.last = null;
@@ -36,13 +37,15 @@ class Stack {
     }
     return vals;
   }
-}
+};
 
-let stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.push(4);
-console.log(stack.toString());
-console.log(stack.pop());
-console.log(stack.toString());
+//can't use the stack here if we're exporting it
+
+// let stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// stack.push(4);
+// console.log(stack.toString());
+// console.log(stack.pop());
+// console.log(stack.toString());

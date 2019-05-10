@@ -6,9 +6,13 @@ class Node {
 }
 
 //based on binaryHeap
-class PriorityQueue {
+// exported for use in other exercises
+module.exports = class PriorityQueue {
   constructor() {
     this.values = [];
+  }
+  get size() {
+    return this.values.length;
   }
   enqueue(val, prio) {
     const node = new Node(val, prio);
@@ -25,7 +29,7 @@ class PriorityQueue {
   //accepts a different index than max, really
   dequeue(i = 0) {
     let vals = this.values;
-    if (vals.length <= 1) return vals.pop();
+    if (vals.length <= 1) return vals.pop().val;
     const toReturn = vals[i];
     vals[i] = vals.pop();
     while (i < vals.length) {
@@ -35,22 +39,23 @@ class PriorityQueue {
       [vals[max], vals[i]] = [vals[i], vals[max]];
       i = max;
     }
-    return toReturn;
+    return toReturn.val;
   }
-}
+};
 
-let q = new PriorityQueue();
-q.enqueue('drunk', 5);
-q.enqueue('headache', 4);
-q.enqueue('fever', 3);
-q.enqueue('broken limb', 2);
-q.enqueue('stroke', 1);
-q.enqueue('gunshot', 0);
+//not available here when exported
+// let q = new PriorityQueue();
+// q.enqueue('drunk', 5);
+// q.enqueue('headache', 4);
+// q.enqueue('fever', 3);
+// q.enqueue('broken limb', 2);
+// q.enqueue('stroke', 1);
+// q.enqueue('gunshot', 0);
 
-console.log(q.values.map(v => v.val));
-console.log(q.dequeue().val);
-console.log(q.dequeue().val);
-console.log(q.dequeue().val);
-console.log(q.dequeue().val);
-console.log(q.dequeue().val);
-console.log(q.dequeue().val);
+// console.log(q.values.map(v => v.val));
+// console.log(q.dequeue().val);
+// console.log(q.dequeue().val);
+// console.log(q.dequeue().val);
+// console.log(q.dequeue().val);
+// console.log(q.dequeue().val);
+// console.log(q.dequeue().val);
